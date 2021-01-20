@@ -1,0 +1,71 @@
+.container-dashboard {
+  width: 100%;
+  height: 100%;
+  padding: 1em;
+  box-sizing: border-box;
+
+  .card {
+    width: 100%;
+    height: 100%;
+    opacity: 0.85;
+    background-color: #f2f2f2;
+
+    .card-style {
+      width: 100%;
+      height: 10%;
+      display: flex;
+      align-items: center;
+      padding-left: 1em;
+      box-sizing: border-box;
+      font-weight: bold;
+    }
+
+    .name-farm {
+      font-size: 18px;
+
+    }
+
+    .types-charts {
+      font-size: 16px;
+
+      span {
+        margin-right: 1em;
+        cursor: pointer;
+
+        &:hover {
+          text-decoration: underline;
+          text-decoration-color: #4d4d4d;
+        }
+
+        &.selected {
+          text-decoration: underline;
+          text-decoration-color: #4d4d4d;
+        }
+      }
+    }
+
+    .charts {
+      width: 100%;
+      height: 80%;
+
+      .chart {
+        width: 100%;
+        height: 100%;
+        box-sizing: border-box;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 1em;
+
+        &.territory {
+          .cell-chart {
+            width: 100%;
+            height: 100%;
+            display: block;
+          }
+        }
+      }
+    }
+
+  }
+}

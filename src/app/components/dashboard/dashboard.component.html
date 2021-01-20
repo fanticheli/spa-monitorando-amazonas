@@ -1,0 +1,31 @@
+<div class="container-dashboard">
+  <div class="card">
+    <div class="card-style name-farm">
+      <span>{{farm.name}}</span>
+    </div>
+    <div class="card-style types-charts">
+      <span (click)="tabSelect(0);" [ngClass]="{'selected': tabSelected === 0}">Análise de uso territorial</span>
+      <span (click)="tabSelect(1);" [ngClass]="{'selected': tabSelected === 1}">Análise de
+        desmatamento/reflorestamento</span>
+    </div>
+    <div class="charts">
+      <div *ngIf="tabSelected === 0" class="chart territory">
+        <div class="cell-chart">
+          <canvas baseChart [data]="configChartTerritoryTotal.data" [labels]="configChartTerritoryTotal.labels"
+            [colors]="configChartTerritoryTotal.colors" [chartType]="pieChartType" [options]="chartsOptions">
+          </canvas>
+        </div>
+        <div class="cell-chart">
+          <canvas baseChart [data]="configChartTerritoryInputs.data" [labels]="configChartTerritoryInputs.labels"
+            [colors]="configChartTerritoryInputs.colors" [chartType]="pieChartType" [options]="chartsOptions">
+          </canvas>
+        </div>
+      </div>
+      <div *ngIf="tabSelected === 1" class="chart deforestation-reforestation">
+        <canvas baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="chartsOptions"
+          [chartType]="barChartType">
+        </canvas>
+      </div>
+    </div>
+  </div>
+</div>

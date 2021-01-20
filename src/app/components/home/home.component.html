@@ -1,0 +1,30 @@
+<div class="container-home">
+
+  <div class="header-home">
+    <div class="menu-state">
+      <span class="material-icons icon"
+        (click)="expandSideMenu();">{{ expandedMenu ? 'keyboard_arrow_left' : 'keyboard_arrow_right'}}</span>
+      <span>{{ expandedMenu ? 'Ocultar Menu' : 'Expandir Menu'}}</span>
+    </div>
+    <div class="title-page">
+      <span>Monitorando Amazonas</span>
+    </div>
+  </div>
+
+  <div class="side-menu" [ngClass]="{'expandMenu': expandedMenu}">
+    <div class="menu" *ngFor="let menu of menus" [ngClass]="{'active': menu.selected}">
+      <span (click)="expandMenu(menu);">{{menu.name}}</span>
+      <div *ngIf="menu.selected" class="sub-menus">
+        <div class="sub-menu" *ngFor="let subMenu of menu.subMenus" [ngClass]="{'active': subMenu.selected}">
+          <span (click)="selectFarm(menu, subMenu)">{{subMenu.name}}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="app-option-selected" [ngClass]="{'expandMenu': expandedMenu}">
+    <about *ngIf="menuSeleted && menuSeleted.order === 1"></about>
+    <dashboard *ngIf="menuSeleted && menuSeleted.order === 2 && farmSelected" [farm]="farmSelected"></dashboard>
+  </div>
+
+</div>
